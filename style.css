@@ -1,51 +1,33 @@
-html, body {
-  width: 100vw;
-  height: 100vh;
+body {
   margin: 0;
-  overflow: hidden;
+  padding: 0;
 }
 
-header h3 {
-  padding: 10px 5px;
-  margin: 0;
+#title {
   font-family: Arial, sans-serif;
+  height: 40px;
+  padding: 0px 5px 10px;
 }
 
-section {
-  width: 100%;
-  height: calc(100% - 40px);
-}
-
-#map1, #map2 {
-  width: 49.5%;
-  height: 100%;
-}
-
-#map1 { float: left; }
-#map2 { float: right; }
-
-.basemaps-wrapper {
+#map {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-#permalink {
-  position: absolute;
+  top: 45px;
   bottom: 0;
+  right: 0;
   left: 0;
-  z-index: 1000;
-  background: white;
-  opacity: 0.8;
-  font-family: Helvetica;
-  font-size: 11px;
-  padding: 2px;
-  text-decoration: none;
-  color: rgb(0, 120, 168);
-  cursor: pointer;
 }
 
-#permalink:hover {
-    text-decoration: underline;
+.control-custom {
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+#rangeSlider {
+  width: 100px;
+}
+
+.range h4 {
+  margin: 0;
 }
