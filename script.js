@@ -65,6 +65,28 @@ $.getJSON("geojson/wh-area-districts-1924-whitten.geojson", function (data) {
   map.fitBounds(choroplethLayer.getBounds())
 });
 
+// zoning points with colored numeric markers; see also style.css
+$.getJSON("geojson/wh-area-markers-1924-whitten.geojson", function (data){
+  L.geoJson(data, {
+    pointToLayer: function( feature, latlng) {
+      var colors = {
+        'A': 'silver', // dark green #006837
+        'B': '#31a354', //
+        'C': '#78c679', //
+        'D': '#c2e699', //
+        'E': '#ffffcc' // light yellow-green
+      }
+      var mIcon = L.ExtraMarkers.icon({
+        icon: 'fa-number',
+        number: feature.properties.area,
+        markerColor: colors[feature.properties.area]
+      });
+      var marker = L.marker(latlng, {icon: mIcon});
+      return marker;
+    }
+  }).addTo(map);
+});
+
 // Add Opacity control
 var opacity = L.control({position: 'bottomleft'});
 opacity.onAdd = function (map) {

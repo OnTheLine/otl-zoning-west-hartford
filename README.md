@@ -20,6 +20,16 @@ Zoning maps, 1930, 1951, 1960, 1970, 1988, Town of West Hartford, Connecticut (w
 
 West Harford property parcels, 2020, CT DEEP, https://ct-deep-gis-open-data-website-ctdeep.hub.arcgis.com/datasets/connecticut-parcels-/data?geometry=-73.130%2C41.653%2C-72.290%2C41.832&orderBy=TOWN&where=TOWN%20%3D%20%27West%20Hartford%27
 
+## Dependencies
+- Leaflet https://leafletjs.com
+- jQuery https://jquery.com/
+- Esri Leaflet for Esri imagery and labels https://github.com/Esri/esri-leaflet/
+- FontAwesome https://fontawesome.com
+- Leaflet.ExtraMarkers https://github.com/coryasilva/Leaflet.ExtraMarkers
+
+## Known issues
+- Console warning: Mixed content (http served over https). Asked UConn MAGIC about future https support for WMS server or alternate map source.
+
 ## Georeferencing and Digitizing Boundaries
 The original 1924 JPG map was georeferenced using [QGIS Georeferencer](https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html) tool. About 40 ground control points were chosen (available in `georeferencing/gcp.points`). The GeoTIFF is too heavy for GitHub, but is easy to recreate.
 
@@ -89,13 +99,3 @@ See also http://gis.vgsi.com/westhartfordct/Parcel.aspx?Pid=2 with these fields:
 - Zone
 - Neighborhood
 - Size (acres)
-
-
-## Dependencies
-- Leaflet https://leafletjs.com
-- jQuery https://jquery.com/
-- Esri Leaflet for Esri imagery and labels https://github.com/Esri/esri-leaflet/
-- L.Map.Sync v0.2.4 to synchronize map movements https://github.com/turban/Leaflet.Sync
-
-## Known issues
-- Console warning: Mixed content (http served over https). Asked UConn MAGIC about future https support for WMS server or alternate map source.

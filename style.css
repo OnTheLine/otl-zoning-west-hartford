@@ -17,6 +17,10 @@ body {
   left: 0;
 }
 
+.leaflet-marker-icon i.fa-number {
+  font-size: 0.8rem !important;
+}
+
 .control-custom {
   background-color: rgba(255,255,255,1);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
