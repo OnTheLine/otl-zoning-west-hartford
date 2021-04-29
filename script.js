@@ -179,3 +179,15 @@ $('#rangeSlider').on('input', function() {
     choroplethLayer.setStyle(choroplethStyle);
   }
 })
+
+
+/* Add a custom image legend */
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML += '<img src="./1924-zoning-legend.png" alt="1924 Zoning Legend" width="110">';
+  return div;
+};
+
+legend.addTo(map);
