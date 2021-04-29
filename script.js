@@ -28,11 +28,11 @@ var presentBackground = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light
 controlLayers.addBaseLayer(presentBackground, 'Present Background');
 
 // https://esri.github.io/esri-leaflet/api-reference/layers/basemap-layer.html
-// var esriImagery = L.esri.basemapLayer('Imagery');
-// var esriTransportation = L.esri.basemapLayer('ImageryTransportation');
-// var esriLabels = L.esri.basemapLayer('ImageryLabels');
-// var presentAerial = [esriImagery, esriTransportation, esriLabels];
-// controlLayers.addBaseLayer(presentAerial, 'Present Aerial');
+var esriImagery = L.esri.basemapLayer('Imagery');
+var esriTransportation = L.esri.basemapLayer('ImageryTransportation');
+var esriLabels = L.esri.basemapLayer('ImageryLabels');
+var presentAerial = L.layerGroup([esriImagery, esriTransportation, esriLabels]);
+controlLayers.addBaseLayer(presentAerial, 'Present Aerial');
 
 // UConn MAGIC WMS settings - see http://geoserver.lib.uconn.edu:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage
 var zoning1924 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoserver/MAGIC/wms?", {
@@ -179,3 +179,15 @@ $('#rangeSlider').on('input', function() {
     choroplethLayer.setStyle(choroplethStyle);
   }
 })
+
+
+/* Add a custom image legend */
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML += '<img src="./1924-zoning-legend.png" alt="1924 Zoning Legend" width="110">';
+  return div;
+};
+
+legend.addTo(map);
