@@ -1,7 +1,7 @@
 // Edit the center point and zoom level
 var map = L.map('map', {
   center: [41.761, -72.741], // West Hartford Center
-  zoom: 15,
+  zoom: 14,
   scrollWheelZoom: false
 });
 
@@ -20,30 +20,12 @@ var controlLayers = L.control.layers( null, null, {
 }).addTo(map);
 
 //baselayers
-var presentBackground = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 19
+var zoning1924 = new L.tileLayer('https://mapwarper.net/maps/tile/56736/{z}/{x}/{y}.png', {
+  attribution: '1924 <a href="https://mapwarper.net/maps/56736">West Hartford Zoning Map</a>'
 }).addTo(map); // adds layer by default
-controlLayers.addBaseLayer(presentBackground, 'Present Background');
-
-// https://esri.github.io/esri-leaflet/api-reference/layers/basemap-layer.html
-var esriImagery = L.esri.basemapLayer('Imagery');
-var esriTransportation = L.esri.basemapLayer('ImageryTransportation');
-var esriLabels = L.esri.basemapLayer('ImageryLabels');
-var presentAerial = L.layerGroup([esriImagery, esriTransportation, esriLabels]);
-controlLayers.addBaseLayer(presentAerial, 'Present Aerial');
-
-// UConn MAGIC WMS settings - see http://geoserver.lib.uconn.edu:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage
-var zoning1924 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoserver/MAGIC/wms?", {
-  layers: 'MAGIC:WestHartford_Zoning_1924',
-  format: 'image/png',
-  version: '1.3.0',
-  transparent: true,
-  attribution: '<a href="http://magic.library.uconn.edu" target="_blank">1924 MAGIC UConn</a> and Town of West Hartford</a>'
-});
 controlLayers.addBaseLayer(zoning1924, '1924 zoning map');
 
+// UConn MAGIC WMS settings - see http://geoserver.lib.uconn.edu:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage
 var zoning1930 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoserver/MAGIC/wms?", {
   layers: 'MAGIC:WestHartford_Zoning_1930',
   format: 'image/png',
@@ -88,6 +70,25 @@ var zoning1988 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoser
   attribution: '<a href="http://magic.library.uconn.edu" target="_blank">1988 MAGIC UConn</a> and Town of West Hartford</a>'
 });
 controlLayers.addBaseLayer(zoning1988, '1988 zoning map');
+
+var zoning2016 = new L.tileLayer('https://mapwarper.net/maps/tile/56738/{z}/{x}/{y}.png', {
+  attribution: '2016 <a href="https://mapwarper.net/maps/56738">West Hartford Zoning Map</a>'
+});
+controlLayers.addBaseLayer(zoning2016, '2016 zoning map');
+
+var presentStreets = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+});
+controlLayers.addBaseLayer(presentStreets, 'Present Streets');
+
+// https://esri.github.io/esri-leaflet/api-reference/layers/basemap-layer.html
+var esriImagery = L.esri.basemapLayer('Imagery');
+var esriTransportation = L.esri.basemapLayer('ImageryTransportation');
+var esriLabels = L.esri.basemapLayer('ImageryLabels');
+var presentAerial = L.layerGroup([esriImagery, esriTransportation, esriLabels]);
+controlLayers.addBaseLayer(presentAerial, 'Present Aerial');
 
 var searchControl = L.esri.Geocoding.geosearch({
   placeholder: "Search the Hartford area...",
@@ -142,11 +143,11 @@ $.getJSON("geojson/wh-area-markers-1924-whitten.geojson", function (data){
   L.geoJson(data, {
     pointToLayer: function( feature, latlng) {
       var colors = {
-        'A': 'silver', // dark green #006837
-        'B': '#31a354', //
-        'C': '#78c679', //
-        'D': '#c2e699', //
-        'E': '#ffffcc' // light yellow-green
+        'A': 'black', // cannot easily use hex colors here
+        'B': 'black', //
+        'C': 'black', //
+        'D': 'black', //
+        'E': 'black' //
       }
       var mIcon = L.ExtraMarkers.icon({
         icon: 'fa-number',
