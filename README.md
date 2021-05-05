@@ -9,10 +9,10 @@ Interactive map developed by Jack Dougherty and Ilya Ilyankou / Picturedigits fo
 
 Replaces 2012 UConn Library MAGIC Google Map http://magic.lib.uconn.edu/otl/dualcontrol_zoning_westhartford.html
 
-## Sources in `historical` or `geojson` folders
+## Sources (see also subfolders)
 Whitten, Robert Harvey. *West Hartford Zoning*. West Hartford CT: Zoning Commission, 1924, http://magic.lib.uconn.edu/magic_2/raster/37840/hdimg_37840_155_1924_unkn_CSL_1_p.pdf (scan of CT State Library edition), or https://www.google.com/books/edition/West_Hartford_Zoning/bdKsAAAAMAAJ.
 
-1924 Tentative Zoning Map, West Hartford, CT. Zoning Commission, Town of West Hartford, georectified at https://mapwarper.net/maps/56736
+1924 Tentative Zoning Map, West Hartford, CT. Zoning Commission, Town of West Hartford. Scanned from CT State Library, http://www.worldcat.org/oclc/830321212. Georectified at https://mapwarper.net/maps/56736
 
 1930, 1951, 1960, 1970, 1988 Zoning Maps, Town of West Hartford (with assistance from Jeffrey Roller), georectified at MAGIC Web Mapping Service (WMS), http://magic.lib.uconn.edu/help/help_WMS.htm
 
