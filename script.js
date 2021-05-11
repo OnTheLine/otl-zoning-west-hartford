@@ -166,7 +166,7 @@ var opacity = L.control({position: 'topright'});
 opacity.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'control-custom range');
   div.innerHTML = '<h4>Opacity: 1924 zones</h4>';
-  div.innerHTML += '<input id="rangeSlider" type="range" min="0" max="100" value="90">';
+  div.innerHTML += '<input id="rangeSlider" type="range" min="0" max="100" value="70">';
 
   // Make sure the map doesn't move with slider change
   L.DomEvent.disableClickPropagation(div);

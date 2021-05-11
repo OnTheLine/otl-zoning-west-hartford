@@ -4,12 +4,14 @@ Interactive Map: Exclusionary Zoning in West Hartford CT, 1924-present, includin
 ## Live map
 https://ontheline.github.io/otl-zoning-west-hartford/index-caption.html
 
+See related repo https://github.com/ontheline/otl-zoning-metro-hartford
+
 ## Credits
 Interactive map developed by Jack Dougherty and Ilya Ilyankou / Picturedigits for On The Line, http://OnTheLine.trincoll.edu, Trinity College, Hartford CT
 
 Replaces 2012 UConn Library MAGIC Google Map http://magic.lib.uconn.edu/otl/dualcontrol_zoning_westhartford.html
 
-## Sources (see also subfolders)
+## Historical sources
 Whitten, Robert Harvey. *West Hartford Zoning*. West Hartford CT: Zoning Commission, 1924, http://magic.lib.uconn.edu/magic_2/raster/37840/hdimg_37840_155_1924_unkn_CSL_1_p.pdf (scan of CT State Library edition), or https://www.google.com/books/edition/West_Hartford_Zoning/bdKsAAAAMAAJ.
 
 1924 Tentative Zoning Map, West Hartford, CT. Zoning Commission, Town of West Hartford. Scanned from CT State Library, http://www.worldcat.org/oclc/830321212. Georectified at https://mapwarper.net/maps/56736
@@ -40,12 +42,13 @@ The original 1924 JPG map was georeferenced using [QGIS Georeferencer](https://d
 
 Shapefiles for use and area districts were manually created in QGIS. They are available from `shapefiles/` folder, as well as GeoJSONS (see `geojson/` folder).
 
-### Notes
+## Design notes
+* Legend created with https://www.figma.com/file/7JitgyYxiT3xR3fyoZttKb/otl-zoning-graphics
 * Western part of West Hartford is rural in 1924, with few roads and intersections that can be reliably used for georeferencing.
 * Each polygon contains *acres* property with its area expressed in acres (rounded to 1 decimal).
 * PDFs with semi-transparent maps were created to assess the accuracy of the output.
 
-## What percent of total land did WH assign to zones A-E in 1924?
+## What percentage of total land did WH assign to zones A-E in 1924?
 1. Digitize wh-area-districts-1924-whitten.geojson, with acres, in QGIS Georeferencer.
 2. In Mapshaper.org, export as CSV, and calculate pivot table for acres.
 
@@ -58,7 +61,7 @@ Shapefiles for use and area districts were manually created in QGIS. They are av
 | E                     | 109             | 1%      |
 | Total                 | 14339           | 100%    |
 
-## What percent of total residential land did WH assign to zones A-E in 1924?
+## What percentage of total residential land did WH assign to zones A-E in 1924?
 In 1924, no one knew exactly which land would be developed into residential, so we use 2020 parcel development to estimate total residential land in the future.
 
 1. Place West Hartford 2020 parcels in GeoJSON.io with OpenStreetMap overlay, and manually remove non-residential parcels (schools, parks, cemeteries, streams, industrial areas, store-only areas) to create: wh-approx-res-parcels-2020.geojson. This is *approximate* because I could not easily remove roads, commercial portions of mixed areas, etc., so it overestimates the amount of potential residential land.
@@ -86,7 +89,7 @@ $ -join area-districts
 
 Interpretation: While A and B differ in the two tables above, the combined A+B total is about the same (84% vs. 81%).
 
-## What percent of *undeveloped* land did WH assign to zones A-E in 1924?
+## What percentage of *undeveloped* land did WH assign to zones A-E in 1924?
 Since about 80% of total estimated residential land was zoned A-B in 1924, we can assume that the percent of *undeveloped* land that year was higher than 80%. Answering this more precisely requires parcel data with "year built" field to separate pre-1924 vs post-1924 land. Sent request in mid-April 2021 to WH CIO for GIS parcel shapefile with year-built data.
 
 See also http://gis.vgsi.com/westhartfordct/Parcel.aspx?Pid=2 with these fields:
