@@ -143,17 +143,10 @@ $.getJSON("geojson/wh-area-districts-1924-whitten.geojson", function (data) {
 $.getJSON("geojson/wh-area-markers-1924-whitten.geojson", function (data){
   L.geoJson(data, {
     pointToLayer: function( feature, latlng) {
-      var colors = {
-        'A': 'black', // cannot easily use hex colors here
-        'B': 'black', //
-        'C': 'black', //
-        'D': 'black', //
-        'E': 'black' //
-      }
       var mIcon = L.ExtraMarkers.icon({
         icon: 'fa-number',
         number: feature.properties.area,
-        markerColor: colors[feature.properties.area]
+        markerColor: 'black'
       });
       var marker = L.marker(latlng, {icon: mIcon});
       return marker;
