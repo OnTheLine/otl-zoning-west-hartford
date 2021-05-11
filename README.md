@@ -4,7 +4,7 @@ Interactive Map: Exclusionary Zoning in West Hartford CT, 1924-present, includin
 ## Live map
 https://ontheline.github.io/otl-zoning-west-hartford/index-caption.html
 
-See related repo https://github.com/ontheline/otl-zoning-metro-hartford
+See related repo: https://github.com/ontheline/otl-zoning-metro-hartford
 
 ## Credits
 Interactive map developed by Jack Dougherty and Ilya Ilyankou / Picturedigits for On The Line, http://OnTheLine.trincoll.edu, Trinity College, Hartford CT
