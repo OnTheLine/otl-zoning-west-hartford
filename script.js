@@ -111,14 +111,15 @@ map.attributionControl.setPrefix('View\
 
 L.control.scale().addTo(map);
 
-// https://colorbrewer2.org/#type=sequential&scheme=YlGn&n=5
+// https://colorbrewer2.org/#type=sequential&scheme=YlGn&n=9
+// use lower range in order to roughly match with otl-zoning-metro-hartford
 var choroplethStyle = function(f) {
   var area2color = {
-    'A': '#006837', // dark green
-    'B': '#31a354', //
-    'C': '#78c679', //
-    'D': '#c2e699', //
-    'E': '#ffffcc' // light yellow-green
+    'A': '#78c679', //  green
+    'B': '#addd8e', //
+    'C': '#d9f0a3', //
+    'D': '#f7fcb9', //
+    'E': '#ffffe5', //  light yellow
   }
 
   return {
@@ -165,7 +166,7 @@ var opacity = L.control({position: 'topright'});
 opacity.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'control-custom range');
   div.innerHTML = '<h4>Opacity: 1924 zones</h4>';
-  div.innerHTML += '<input id="rangeSlider" type="range" min="0" max="100" value="70">';
+  div.innerHTML += '<input id="rangeSlider" type="range" min="0" max="100" value="90">';
 
   // Make sure the map doesn't move with slider change
   L.DomEvent.disableClickPropagation(div);
