@@ -176,7 +176,7 @@ $('#rangeSlider').on('input', function() {
 })
 
 
-/* Add a custom image legend */
+// add custom legend https://www.figma.com/file/7JitgyYxiT3xR3fyoZttKb/otl-zoning-graphics
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function(map) {
